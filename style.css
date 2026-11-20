@@ -1,0 +1,87 @@
+/* Kagibako 公式サイト 共通の見た目（すべてのページで使う） */
+:root {
+  --navy: #14233a; --navy-2: #1d3352;
+  --brass: #d8b25a; --brass-2: #c29634; --brass-text: #8a6417;
+  --text: #1a2433; --sub: #5f6b7a; --line: #ddd7cb;
+  --bg: #f3f1ec; --panel: #ffffff; --on-navy: #eef1f5; --on-navy-sub: #aab6c6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --text: #e6eaf0; --sub: #9aa7b8; --line: #2a3749; --bg: #0e1520; --panel: #162131; --brass-text: #e0b354; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+  color: var(--text); background: var(--bg); line-height: 1.75;
+}
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+.wrap.narrow { max-width: 760px; }
+a { color: var(--brass-text); }
+code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; }
+
+/* 上部の紺の帯 */
+header.hero {
+  background: linear-gradient(160deg, var(--navy), var(--navy-2));
+  color: var(--on-navy); text-align: center; padding: 52px 0 44px;
+}
+header.hero .logo { display: inline-block; line-height: 0; }
+header.hero .logo img { width: min(440px, 86%); height: auto; }
+header.hero.small { padding: 36px 0 30px; }
+header.hero.small .logo img { width: min(220px, 60%); }
+header.hero h1 { font-size: 24px; margin-top: 14px; }
+header.hero .tagline { margin-top: 16px; font-size: 17px; }
+header.hero .sub { margin-top: 6px; font-size: 14px; color: var(--on-navy-sub); }
+header.hero .status { margin-top: 14px; font-size: 13px; color: var(--on-navy-sub); }
+
+/* ボタン（主な操作は真鍮色、ほかは枠だけ） */
+.cta-wrap { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+.cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  text-decoration: none; font-weight: 700; font-size: 16px;
+  padding: 12px 26px; border-radius: 10px; min-height: 48px;
+  background: linear-gradient(180deg, var(--brass), var(--brass-2)); color: var(--navy);
+  box-shadow: 0 1px 2px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.cta.ghost { background: transparent; color: var(--on-navy); border: 1px solid var(--on-navy-sub); box-shadow: none; }
+.cta.soon { background: transparent; color: var(--on-navy-sub); border: 1px dashed var(--on-navy-sub); box-shadow: none; cursor: default; }
+[hidden] { display: none !important; }
+
+/* 本文 */
+section { padding: 46px 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; }
+h2 { font-size: 21px; margin-bottom: 20px; padding-left: 12px; border-left: 4px solid var(--brass); }
+h3 { font-size: 16px; margin: 18px 0 8px; }
+p { margin-bottom: 10px; }
+p:last-child { margin-bottom: 0; }
+.muted { color: var(--sub); }
+.note { font-size: 13px; color: var(--sub); margin-top: 14px; }
+ul.plain, ol.plain { padding-left: 1.4em; margin-bottom: 10px; }
+ul.plain li, ol.plain li { margin-bottom: 4px; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; list-style: none; }
+.features li { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.features b { display: block; font-size: 16px; margin-bottom: 4px; }
+.features span { color: var(--sub); font-size: 14.5px; }
+
+/* 画面の画像：スマホは縦長、PC は横長 */
+.shots { display: grid; gap: 22px; }
+.shots.phone { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.shots.pc { grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); }
+.shots figure { margin: 0; }
+.shots img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; }
+.shots.phone img { border-radius: 18px; }
+.shots figcaption { margin-top: 8px; font-size: 14px; color: var(--sub); }
+
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.links a {
+  display: inline-flex; align-items: center; text-decoration: none; font-weight: 600;
+  border: 1px solid var(--brass-text); border-radius: 8px; padding: 10px 16px; font-size: 14px; min-height: 44px;
+}
+.back { display: inline-block; margin-top: 20px; font-size: 14px; }
+footer { text-align: center; color: var(--sub); font-size: 12px; padding: 28px 0 40px; }
+
+@media (max-width: 480px) {
+  .shots.pc { grid-template-columns: 1fr; }
+  .shots.phone { grid-template-columns: 1fr 1fr; gap: 14px; }
+  header.hero { padding: 40px 0 34px; }
+  header.hero .tagline { font-size: 15.5px; }
+}
