@@ -77,6 +77,15 @@ ul.plain li, ol.plain li { margin-bottom: 4px; }
   border: 1px solid var(--brass-text); border-radius: 8px; padding: 10px 16px; font-size: 14px; min-height: 44px;
 }
 .back { display: inline-block; margin-top: 20px; font-size: 14px; }
+
+/* ログインの練習ページ（practice-login.html） */
+.practice-safe { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+.practice-form { display: grid; gap: 14px; margin-top: 20px; }
+.practice-field { display: grid; gap: 4px; font-weight: 600; }
+.practice-field input { font: inherit; font-weight: 400; font-size: 17px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--text); }
+.practice-btn { border: 0; cursor: pointer; font-family: inherit; }
+.practice-ok { margin-top: 18px; padding: 14px 16px; border-radius: 10px; border: 2px solid var(--brass); background: var(--panel); display: grid; gap: 2px; }
+.practice-ok b { font-size: 18px; color: var(--brass-text); }
 footer { text-align: center; color: var(--sub); font-size: 12px; padding: 28px 0 40px; }
 
 @media (max-width: 480px) {

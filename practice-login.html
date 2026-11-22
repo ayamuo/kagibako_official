@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 練習用のページ：入力した内容をどこにも送らない（フォームの送信先・通信・外部の読み込みをすべて禁止） -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>ログインの練習｜Kagibako（鍵箱）</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="theme-color" content="#14233a">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero small">
+  <div class="wrap narrow">
+    <a class="logo" href="./"><img src="logo.webp" alt="Kagibako" width="960" height="245"></a>
+    <h1>ログインの練習</h1>
+    <p class="status">Kagibako の自動入力を試すためのページです</p>
+  </div>
+</header>
+
+<main class="wrap narrow">
+
+  <section>
+    <p class="practice-safe">このページは練習用です。入力した内容は<strong>どこにも送られません</strong>（このページには送信する仕組みがありません）。本物の ID・パスワードは入れないでください。</p>
+
+    <form class="practice-form" id="practice-form" autocomplete="on" novalidate>
+      <label class="practice-field">
+        <span>ID</span>
+        <input type="text" id="login-id" name="username" autocomplete="username" autocapitalize="off" spellcheck="false" inputmode="email">
+      </label>
+      <label class="practice-field">
+        <span>パスワード</span>
+        <input type="password" id="login-pw" name="password" autocomplete="current-password">
+      </label>
+      <button type="submit" class="cta practice-btn">ログイン（練習）</button>
+    </form>
+
+    <p class="muted" id="practice-need" role="status" hidden>ID とパスワードの両方を入れてください。</p>
+
+    <div class="practice-ok" id="practice-ok" role="status" hidden>
+      <b>入力できました！</b>
+      <span>これで練習はおしまいです。Kagibako に戻ってください。</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>やり方</h2>
+    <ol class="plain">
+      <li>上の「ID」の欄を押します</li>
+      <li>キーボードの上か、欄の下に出る「Kagibako で入力」を押します</li>
+      <li>Kagibako のロックを解除して、練習用のアイテムを選びます</li>
+      <li>ID とパスワードが入ると、「入力できました！」と出ます</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>「Kagibako で入力」が出ないとき</h2>
+    <ul class="plain">
+      <li>Kagibako の 設定 で「自動入力サービス」に設定しているか確かめてください。</li>
+      <li>Chrome・Brave：ブラウザの 設定 →「自動入力サービス」→「他のサービスを使用して自動入力」を選び、ブラウザを再起動してください。</li>
+      <li>ID の欄を一度押しただけでは出ないことがあります。もう一度押してみてください。</li>
+      <li>Galaxy の「Samsung インターネット」では、ほかのアプリの自動入力が出ないことがあります。Chrome で開き直してください。</li>
+    </ul>
+    <a class="back" href="./">← Kagibako のトップへ</a>
+  </section>
+
+</main>
+
+<footer>&copy; 2026 ayamuo ｜ Kagibako（鍵箱）</footer>
+
+<script src="practice-login.js"></script>
+</body>
+</html>
